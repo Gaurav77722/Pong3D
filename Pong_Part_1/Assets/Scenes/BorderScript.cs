@@ -32,13 +32,13 @@ public class BorderScript : MonoBehaviour
         // Win Condition
         if (scoreBlue == 11)
         {
-            Debug.Log("Game Over, Left Paddle Wins");
+            Debug.Log("Game Over, Right Paddle Wins");
             scoreBlue = 0;
             scoreGreen = 0;
         }
         else if(scoreGreen == 11)
         {
-            Debug.Log("Game Over, Right Paddle Wins");
+            Debug.Log("Game Over, Left Paddle Wins");
             scoreBlue = 0;
             scoreGreen = 0;
         }
