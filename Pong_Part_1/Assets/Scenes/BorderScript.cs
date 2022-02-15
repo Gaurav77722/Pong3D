@@ -8,24 +8,32 @@ public class BorderScript : MonoBehaviour
     public int scoreGreen;
     public int scoreBlue;
     public activePaddle player;
-    
-    
+
+    public ScoreBoardUI scoreBoard;
+    public ScoreBoardUIBlue scoreBoardBlue;
+
+    private void Start()
+    {
+        scoreBoard = GameObject.Find("Left").GetComponent<ScoreBoardUI>();
+        scoreBoardBlue = GameObject.Find("Right").GetComponent<ScoreBoardUIBlue>();
+    }
 
     void OnCollisionEnter(Collision collision)
     {
         Ball ball = collision.gameObject.GetComponent<Ball>();
-        ball.transform.position = new Vector3(0f, 0.7f, 0f);;
+        ball.transform.position = new Vector3(0f, 0.2f, 0f);
         
         
-
         if (player == activePaddle.Green)
         {
             scoreGreen++;
+            scoreBoard.increaseGreen();
             Debug.Log("Player Green:" + scoreGreen);
         }
         else if (player == activePaddle.Blue)
         {
             scoreBlue++;
+            scoreBoardBlue.increaseBlue();
             Debug.Log("Player Blue:" + scoreBlue);
         }
         
